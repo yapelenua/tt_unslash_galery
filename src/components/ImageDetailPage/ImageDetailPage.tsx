@@ -1,19 +1,21 @@
 import { FC, useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Image } from '../types/image';
-import { getOneImage } from '../api/images';
+import { Image } from '../../types/image';
+import './ImageDetailPage.scss'
+import { getOneImage } from '../../api/images';
 
 export const ImageDetailPage = () => {
   const { pathname } = useLocation();
   const [image, setImage] = useState<Image | null>(null);
+  const [error, setError] = useState(false);
+
   const loadImage = async () => {
     try {
       const imageFromServer = await getOneImage(pathname.slice(8));
-
       setImage(imageFromServer.data);
-      console.log(pathname.slice(8))
-    } catch {
-      throw new Error('error');
+    } catch (error) {
+      console.log(error);
+      setError(true);
     }
   };
 
@@ -22,13 +24,13 @@ export const ImageDetailPage = () => {
   }, [pathname]);
 
   return (
-    <div className="modal">
-      <div className="modal__content">
-        <div className="modal__user">
+    <div className="details">
+      <div className="details__content">
+        <div className="details__user">
           <img
             src={image?.user.profile_image.medium}
             alt={image?.user.name}
-            className="modal__user-img"
+            className="details__user-img"
           />
 
           <div>
@@ -36,7 +38,7 @@ export const ImageDetailPage = () => {
           </div>
         </div>
 
-        <div className="modal__info">
+        <div className="details__info">
           <div>
             {`Downloads: ${image?.downloads}`}
           </div>
@@ -55,7 +57,7 @@ export const ImageDetailPage = () => {
       <img
         src={image?.urls.regular}
         alt={image?.alt_description}
-        className="modal__image"
+        className="details__image"
       />
 
       <div className="modal__tags">
@@ -63,7 +65,7 @@ export const ImageDetailPage = () => {
           <Link
             key={tag.title}
             to={`/collection/${tag.title}`}
-            className="modal__tag-link"
+            className="details__tag-link"
           >
             {tag.title}
           </Link>
@@ -72,9 +74,8 @@ export const ImageDetailPage = () => {
 
       <Link
         to="/"
-        className="modal__close"
+        className="details__close"
       />
-      <p> 1234</p>
     </div>
   );
 };

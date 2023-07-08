@@ -1,0 +1,15 @@
+.button__box{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    &-list{
+        display: flex;
+        gap: 10px;
+    }
+}
+
+.button{
+    color: rgb(77, 77, 77);
+}

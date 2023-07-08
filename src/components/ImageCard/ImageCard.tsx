@@ -1,7 +1,7 @@
 import React, { FC, memo } from 'react';
 import { Link } from 'react-router-dom';
-import { Image } from '../types/image';
-import '../styles/ImageCard.css'
+import { Image } from '../../types/image';
+import './ImageCard.scss'
 
 interface Props {
   image: Image,
