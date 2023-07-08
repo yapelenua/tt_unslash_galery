@@ -16,6 +16,7 @@
     "@types/react-dom": "^18.2.6",
     "axios": "^1.4.0",
     "bulma": "^0.9.4",
+    "classnames": "^2.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-responsive": "^9.0.2",
@@ -31,13 +32,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "browserslist": {
     "production": [
@@ -52,6 +49,8 @@
     ]
   },
   "devDependencies": {
-    "@types/react-responsive-masonry": "^2.1.0"
+    "@types/react-responsive-masonry": "^2.1.0",
+    "gh-pages": "^5.0.0",
+    "homepage": "https://yapelenua.github.io/tt_unslash_galery"
   }
 }
