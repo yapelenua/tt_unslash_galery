@@ -1,4 +1,5 @@
 {
+  "homepage": ".",
   "name": "tt_galery",
   "version": "0.1.0",
   "private": true,
@@ -50,7 +51,6 @@
   },
   "devDependencies": {
     "@types/react-responsive-masonry": "^2.1.0",
-    "gh-pages": "^5.0.0",
-    "homepage": "https://yapelenua.github.io/tt_unslash_galery"
+    "gh-pages": "^5.0.0"
   }
 }
