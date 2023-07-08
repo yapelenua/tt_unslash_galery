@@ -7,7 +7,6 @@ import { getOneImage } from '../../api/images';
 export const ImageDetailPage = () => {
   const { pathname } = useLocation();
   const [image, setImage] = useState<Image | null>(null);
-  const [error, setError] = useState(false);
 
   const loadImage = async () => {
     try {
