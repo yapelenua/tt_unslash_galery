@@ -8,6 +8,8 @@ import { useMediaQuery } from '@mui/material';
 import './Home.scss'
 import 'bulma/css/bulma.min.css';
 import Pagination from "../Pagination/Pagination";
+import { SearchComponent } from '../SearchComponent/SearchComponent';
+
 
 export const Home: React.FC = () => {
   const [images, setImages] = useState<Image[]>([]);
@@ -61,6 +63,8 @@ export const Home: React.FC = () => {
 
 
   return (
+    <>
+    <SearchComponent />
     <div className="container">
       <div className="button__box">
         <button className="button is-primary is-centered" onClick={increaseColumns}>5</button>
@@ -82,5 +86,6 @@ export const Home: React.FC = () => {
         />
       </div>
     </div>
+    </>
   );
 };

@@ -24,6 +24,10 @@ export const ImageDetailPage = () => {
   return (
     <div className="details">
       <div className="details__content">
+      <Link
+        to="/"
+        className="details__close"
+      />
         <div className="details__user">
           <img
             src={image?.user.profile_image.medium}
@@ -49,7 +53,6 @@ export const ImageDetailPage = () => {
             {`Views: ${image?.views}`}
           </div>
         </div>
-
       </div>
 
       <img
@@ -69,11 +72,6 @@ export const ImageDetailPage = () => {
           </Link>
         ))}
       </div>
-
-      <Link
-        to="/"
-        className="details__close"
-      />
     </div>
   );
 };

@@ -7,6 +7,7 @@ import { useMediaQuery } from '@mui/material';
 import 'bulma/css/bulma.min.css';
 import Pagination from "../Pagination/Pagination";
 import { SearchType } from "../../types/SearchType";
+import { SearchComponent } from "./SearchComponent";
 
 export const SearchPage: React.FC = () => {
     const [searchParams] = useSearchParams();
@@ -66,6 +67,8 @@ export const SearchPage: React.FC = () => {
     const photos = images?.results || [];
   
     return (
+      <>
+      <SearchComponent />
       <div className="container">
         <div className="button__box">
           <button className="button is-primary is-centered" onClick={increaseColumns}>
@@ -85,6 +88,7 @@ export const SearchPage: React.FC = () => {
           <Pagination currentPage={page} onChange={onPageChange} />
         </div>
       </div>
+      </>
     );
   };
   

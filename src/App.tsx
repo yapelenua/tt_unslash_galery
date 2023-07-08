@@ -4,34 +4,32 @@ import { Home } from './components/Home/Home';
 import Error from './components/Error';
 import { ImageDetailPage } from './components/ImageDetailPage/ImageDetailPage';
 import { Explore } from './components/Explore/Explore';
-import { SearchPage } from './components/SearchComponent.tsx/SearchPage';
-import { SearchComponent } from './components/SearchComponent.tsx/SearchComponent';
+import { SearchPage } from './components/SearchComponent/SearchPage';
 
 export const App: React.FC = () => {
   return (
-    <div className="starter">
-      <Router>
-        <SearchComponent />
-        <Routes>
-          <Route path="/home" element={<Navigate to="/" replace />} />
-          <Route path="/" element={<Home />} />
+      <>
+      <Routes>
+        <Route path="/home" element={<Navigate to="/" replace />} />
 
-          <Route path="/photos">
-            <Route index element={<Home />} />
-            <Route path=":id" element={<ImageDetailPage />} />
-          </Route>
+        <Route path="/" element={<Home />} />
 
-          <Route path="/collection" element={<Explore />}>
+        <Route path="/photos">
+          <Route index element={<Home />} />
+          <Route path=":id" element={<ImageDetailPage />} />
+        </Route>
+
+
+        <Route path="/collection" element={<Explore />}>
             <Route path=":tag" element={<Explore />} />
-          </Route>
+        </Route>
 
-          <Route path="/search" element={<SearchPage />}>
+        <Route path="/search" element={<SearchPage />}>
             <Route index element={<SearchPage />} />
-          </Route>
+        </Route>
 
-          <Route path="*" element={<Error />} />
-        </Routes>
-      </Router>
-    </div>
+        <Route path="*" element={<Error />} />
+      </Routes>
+    </>
   );
 };
