@@ -14,7 +14,6 @@ export const ImageDetailPage = () => {
       setImage(imageFromServer.data);
     } catch (error) {
       console.log(error);
-      setError(true);
     }
   };
 
